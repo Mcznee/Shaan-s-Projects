@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Simple Clock</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      text-align: center;
+    }
+    
+    .clock {
+      font-size: 48px;
+      color: #333;
+      margin-top: 200px;
+    }
+  </style>
+</head>
+<body>
+  <div class="clock" id="clock"></div>
+
+  <script>
+    function updateClock() {
+      var currentTime = new Date();
+      var hours = currentTime.getHours();
+      var minutes = currentTime.getMinutes();
+      var seconds = currentTime.getSeconds();
+      
+      // Add leading zeros to minutes and seconds
+      minutes = (minutes < 10 ? "0" : "") + minutes;
+      seconds = (seconds < 10 ? "0" : "") + seconds;
+      
+      var clockDiv = document.getElementById('clock');
+      clockDiv.innerText = hours + ":" + minutes + ":" + seconds;
+    }
+    
+    // Update the clock every second
+    setInterval(updateClock, 1000);
+  </script>
+</body>
+</html>
